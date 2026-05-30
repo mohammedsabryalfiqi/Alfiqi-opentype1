@@ -1,0 +1,202 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@font-face {
+  font-family: 'Thmanyah Serif Display';
+  src: url('/fonts/thmanyah-serif-display-black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Thmanyah Sans';
+  src: url('/fonts/thmanyah-sans-light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-success: hsl(var(--success));
+  --color-success-foreground: hsl(var(--success-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-surface: hsl(var(--surface));
+
+  --color-header-bg: hsl(var(--header-bg));
+  --color-header-fg: hsl(var(--header-fg));
+  --color-header-accent: hsl(var(--header-accent));
+
+  --color-log-bg: hsl(var(--log-bg));
+  --color-log-border: hsl(var(--log-border));
+  --color-log-text: hsl(var(--log-text));
+  --color-log-success: hsl(var(--log-success));
+  --color-log-error: hsl(var(--log-error));
+}
+
+@layer base {
+  :root {
+    --background: 36 25% 95%;
+    --foreground: 25 20% 15%;
+
+    --card: 36 20% 99%;
+    --card-foreground: 25 20% 15%;
+
+    --popover: 36 20% 99%;
+    --popover-foreground: 25 20% 15%;
+
+    --primary: 32 80% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 36 18% 91%;
+    --secondary-foreground: 25 20% 15%;
+
+    --muted: 36 15% 92%;
+    --muted-foreground: 25 10% 50%;
+
+    --accent: 32 30% 90%;
+    --accent-foreground: 25 20% 15%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 145 55% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 32 15% 87%;
+    --input: 32 15% 87%;
+    --ring: 32 80% 48%;
+    --radius: 0.625rem;
+
+    --header-bg: 25 30% 16%;
+    --header-fg: 36 25% 92%;
+    --header-accent: 38 80% 55%;
+
+    --log-bg: 25 25% 12%;
+    --log-border: 25 18% 22%;
+    --log-text: 36 10% 60%;
+    --log-success: 38 80% 55%;
+    --log-error: 0 65% 55%;
+
+    --surface: 36 20% 97%;
+  }
+
+  .dark {
+    --background: 25 20% 8%;
+    --foreground: 36 15% 88%;
+
+    --card: 25 18% 12%;
+    --card-foreground: 36 15% 88%;
+
+    --popover: 25 18% 12%;
+    --popover-foreground: 36 15% 88%;
+
+    --primary: 35 80% 52%;
+    --primary-foreground: 25 30% 8%;
+
+    --secondary: 25 15% 16%;
+    --secondary-foreground: 36 15% 88%;
+
+    --muted: 25 15% 16%;
+    --muted-foreground: 36 10% 52%;
+
+    --accent: 25 15% 16%;
+    --accent-foreground: 36 15% 88%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 145 55% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 25 15% 18%;
+    --input: 25 15% 18%;
+    --ring: 35 80% 52%;
+
+    --header-bg: 25 25% 10%;
+    --header-fg: 36 20% 85%;
+    --header-accent: 38 80% 55%;
+
+    --log-bg: 25 25% 6%;
+    --log-border: 25 18% 15%;
+    --log-text: 36 10% 50%;
+    --log-success: 38 80% 55%;
+    --log-error: 0 62% 50%;
+
+    --surface: 25 18% 10%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Thmanyah Sans', 'IBM Plex Sans Arabic', 'Segoe UI', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: 'Thmanyah Serif Display', 'IBM Plex Sans Arabic', serif;
+    font-weight: 900;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background-color: hsl(var(--card) / 0.8);
+    backdrop-filter: blur(8px);
+    border: 1px solid hsl(var(--border) / 0.6);
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 5px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+
+  .preview-editable:empty::before {
+    content: attr(data-placeholder);
+    color: hsl(var(--muted-foreground) / 0.4);
+    pointer-events: none;
+    display: block;
+  }
+    }
